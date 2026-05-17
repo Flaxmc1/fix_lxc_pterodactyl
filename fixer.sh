@@ -25,6 +25,7 @@ fi
 
 echo -e "${BLUE}📦 Installing fuse-overlayfs...${NC}"
 apt update -y
+apt install -y docker.io
 apt install -y fuse-overlayfs
 
 echo -e "${BLUE}⚙️ Configuring Docker daemon for fuse-overlayfs...${NC}"
