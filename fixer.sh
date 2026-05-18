@@ -25,6 +25,7 @@ fi
 
 echo -e "${BLUE}📦 Installing fuse-overlayfs...${NC}"
 apt update -y
+apt remove containerd.io -y
 apt install -y docker.io
 apt install -y fuse-overlayfs
 
