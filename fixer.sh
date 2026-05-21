@@ -36,6 +36,8 @@ fi
 
 
 echo -e "${BLUE}📦 Installing fuse-overlayfs...${NC}"
+systemctl enable docker
+systemctl start docker
 apt update -y
 apt install -y fuse-overlayfs
 
