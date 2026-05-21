@@ -25,11 +25,21 @@ fi
 
 echo -e "${BLUE}📦 Installing fuse-overlayfs...${NC}"
 apt update -y
-apt remove containerd.io -y
-apt install -y docker.io
 apt install -y fuse-overlayfs
 
+# Check if Docker is already installed
+if command -v docker &> /dev/null; then
+    echo -e "${GREEN}✅ Docker is already installed. Skipping Docker installation.${NC}"
+    DOCKER_VERSION=$(docker --version)
+    echo -e "${BLUE}📌 Current Docker version: ${DOCKER_VERSION}${NC}"
+else
+    echo -e "${YELLOW}⚠️  Docker not found. Installing Docker...${NC}"
+    apt install -y docker.io
+    echo -e "${GREEN}✅ Docker installed successfully${NC}"
+fi
+
 echo -e "${BLUE}⚙️ Configuring Docker daemon for fuse-overlayfs...${NC}"
+
 # Backup existing daemon.json if it exists
 if [ -f /etc/docker/daemon.json ]; then
     cp /etc/docker/daemon.json /etc/docker/daemon.json.backup.$(date +%Y%m%d_%H%M%S)
