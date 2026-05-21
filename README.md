@@ -1,4 +1,4 @@
-**📜 Nissalop2 Limited Use License**  
+**📜 Nissalop2 & Rajveer  Limited Use License**  
 **Project:** Fix_LXC_Pterodactyl  
 **Created by:** Rajveer & Nissalop2 ✨  
 **Contact for modifications:** morrico1987@gmail.com  
